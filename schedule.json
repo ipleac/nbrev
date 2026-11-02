@@ -23,14 +23,14 @@
       "name": "morning-music",
       "time": "08:30-10:00",
       "file": "daily.mp3",
-      "volume": 40,
+      "volume": 30,
       "repeat_gap": [5, 10]
     },
     {
       "name": "evening-music",
       "time": "20:00-22:00",
       "file": "daily.mp3",
-      "volume": 40,
+      "volume": 30,
       "repeat_gap": [15, 25]
     },
     {
