@@ -219,7 +219,7 @@ def api_volume_set():
         return jsonify({"error": "body must be {percent: int}"}), 400
     pct = max(0, min(150, pct))
     if not party.set_volume(pct):
-        return jsonify({"error": "pactl set-sink-volume failed"}), 503
+        return jsonify({"error": "setting system volume failed"}), 503
     return jsonify({"ok": True, "volume": pct})
 
 
@@ -620,7 +620,7 @@ def index():
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--host", default="127.0.0.1", help="bind address (use 0.0.0.0 for LAN)")
+    ap.add_argument("--host", default="0.0.0.0", help="bind address (use 0.0.0.0 for LAN)")
     ap.add_argument("--port", type=int, default=5005)
     ap.add_argument("--no-scheduler", action="store_true",
                     help="do not run the scheduler in-process (use external party.py daemon)")

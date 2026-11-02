@@ -235,8 +235,8 @@ DEFAULT_SINK = "@DEFAULT_SINK@"
 
 
 def set_volume(percent: int) -> bool:
-    """Set the default output's (master) volume. Per-event loudness is a
-    stream volume instead, see play_file()."""
+    """Set the default output's (master) volume. play_event() sets it to
+    each event's volume."""
     if sys.platform == "darwin":
         # macOS has no boost past 100%.
         pct = max(0, min(100, int(percent)))
@@ -340,7 +340,7 @@ class Event:
     time: str                       # "HH:MM" or "HH:MM-HH:MM" (window)
     file: Optional[str] = None      # single file to play
     folder: Optional[str] = None    # OR a folder — random pick per play
-    volume: int = 80                # percent, applied as the stream volume
+    volume: int = 80                # percent, set as the system volume when the event starts
     repeat: int = 1                 # how many times to play back-to-back (ignored if window is set)
     repeat_gap: tuple = (0.0, 0.0)  # (min, max) seconds of silence between repeats
     days: list = field(default_factory=lambda: list(DAYS))
@@ -572,6 +572,29 @@ def _on_stop(signum, frame):
 
 
 def play_event(ev: Event, state: dict) -> None:
+    """Play an event with the system (master) volume set to the event's volume,
+    then put the volume back to what it was. Files play at full stream level
+    so the two don't multiply."""
+    before = get_volume()
+    set_volume(ev.volume)
+    applied = get_volume()
+    log(f"{ev.name}: system volume {before}% -> {ev.volume}% (reads back {applied}%)")
+    try:
+        _play_event(ev, state)
+    finally:
+        # Leave it alone if someone moved the volume mid-event (UI slider,
+        # keyboard): their change wins over the pre-event level.
+        now_vol = get_volume()
+        if before is None:
+            pass
+        elif now_vol != applied:
+            log(f"{ev.name}: volume changed during event ({applied}% -> {now_vol}%), not restoring")
+        else:
+            set_volume(before)
+            log(f"{ev.name}: system volume restored to {before}%")
+
+
+def _play_event(ev: Event, state: dict) -> None:
     state.update({
         "mode": "starting",
         "current": {"name": ev.name, "source": ev.source(), "volume": ev.volume},
@@ -635,7 +658,7 @@ def play_event(ev: Event, state: dict) -> None:
         }
         write_state(state)
         log(f"{ev.name}: iteration {i}/{of_str} -> {path.name}")
-        ok = play_file(path, ev.volume)
+        ok = play_file(path)
         if ok:
             played += 1
             all_ok = all_ok and ok

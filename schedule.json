@@ -5,39 +5,39 @@
       "name": "alarm-5",
       "time": "06:00",
       "file": "alarm.wav",
-      "volume": 65
+      "volume": 25
     },
     {
       "name": "alarm-6",
       "time": "06:30",
       "file": "alarm.wav",
-      "volume": 50
+      "volume": 25
     },
     {
       "name": "alarm-7",
       "time": "07:00",
       "file": "alarm.wav",
-      "volume": 50
+      "volume": 25
     },
     {
       "name": "morning-music",
       "time": "08:30-10:00",
       "file": "daily.mp3",
-      "volume": 65,
+      "volume": 40,
       "repeat_gap": [5, 10]
     },
     {
       "name": "evening-music",
       "time": "20:00-22:00",
       "file": "daily.mp3",
-      "volume": 65,
+      "volume": 40,
       "repeat_gap": [15, 25]
     },
     {
       "name": "night-noise",
       "time": "00:00-06:00",
       "file": "beep.mp3",
-      "volume": 25,
+      "volume": 15,
       "repeat_gap": [1, 90]
     }
   ]

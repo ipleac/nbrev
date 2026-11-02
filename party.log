@@ -1517,3 +1517,34 @@
 [2026-11-02T01:15:37] night-noise: iteration 1/∞ ok=True
 [2026-11-02T01:15:37] night-noise: gap 48.73s
 [2026-11-02T01:16:09] daemon stopped
+[2026-11-02T01:16:57] daemon up pid=82297 events=6 tz=Europe/Chisinau
+[2026-11-02T01:16:57] night-noise: window mode, playing until 2026-11-02 06:00
+[2026-11-02T01:16:57] night-noise: iteration 1/∞ -> beep.mp3
+[2026-11-02T01:16:59] night-noise: iteration 1/∞ ok=True
+[2026-11-02T01:16:59] night-noise: gap 63.67s
+[2026-11-02T01:17:00] daemon stopped
+[2026-11-02T08:23:21] vol-test: system volume -> 35% (reads back 35%)
+[2026-11-02T08:23:21] vol-test: playing from beep.mp3 at 35% x1
+[2026-11-02T08:23:21] vol-test: iteration 1/1 -> beep.mp3
+[2026-11-02T08:23:23] vol-test: iteration 1/1 ok=True
+[2026-11-02T08:24:39] t-normal: system volume 6% -> 10% (reads back 10%)
+[2026-11-02T08:24:39] t-normal: playing from beep.mp3 at 10% x1
+[2026-11-02T08:24:39] t-normal: iteration 1/1 -> beep.mp3
+[2026-11-02T08:24:41] t-normal: iteration 1/1 ok=True
+[2026-11-02T08:24:41] t-normal: system volume restored to 6%
+[2026-11-02T08:24:42] t-alarm: system volume 6% -> 8% (reads back 8%)
+[2026-11-02T08:24:42] t-alarm: playing from alarm.wav at 8% x1
+[2026-11-02T08:24:42] t-alarm: iteration 1/1 -> alarm.wav
+[2026-11-02T08:24:42] t-beep: preempting active playback
+[2026-11-02T08:24:42] t-alarm: iteration 1/1 aborted (aborted)
+[2026-11-02T08:24:43] t-alarm: system volume restored to 6%
+[2026-11-02T08:24:43] t-beep: system volume 6% -> 12% (reads back 12%)
+[2026-11-02T08:24:43] t-beep: playing from beep.mp3 at 12% x1
+[2026-11-02T08:24:43] t-beep: iteration 1/1 -> beep.mp3
+[2026-11-02T08:24:45] t-beep: iteration 1/1 ok=True
+[2026-11-02T08:24:45] t-beep: system volume restored to 6%
+[2026-11-02T08:24:46] t-user: system volume 6% -> 5% (reads back 5%)
+[2026-11-02T08:24:46] t-user: playing from alarm.wav at 5% x1
+[2026-11-02T08:24:46] t-user: iteration 1/1 -> alarm.wav
+[2026-11-02T08:24:46] t-user: iteration 1/1 aborted (aborted)
+[2026-11-02T08:24:46] t-user: volume changed during event (5% -> 20%), not restoring
