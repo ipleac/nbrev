@@ -21,7 +21,7 @@
     },
     {
       "name": "morning-music",
-      "time": "08:30-10:00",
+      "time": "08:30-19:00",
       "file": "daily.mp3",
       "volume": 25,
       "repeat_gap": [5, 10]
