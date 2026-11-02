@@ -5,19 +5,19 @@
       "name": "alarm-5",
       "time": "06:00",
       "file": "alarm.wav",
-      "volume": 25
+      "volume": 35
     },
     {
       "name": "alarm-6",
       "time": "06:30",
       "file": "alarm.wav",
-      "volume": 25
+      "volume": 35
     },
     {
       "name": "alarm-7",
       "time": "07:00",
       "file": "alarm.wav",
-      "volume": 25
+      "volume": 35
     },
     {
       "name": "morning-music",
