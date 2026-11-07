@@ -37,7 +37,7 @@
       "name": "night-noise",
       "time": "00:00-06:00",
       "file": "beep.mp3",
-      "volume": 10,
+      "volume": 20,
       "repeat_gap": [1, 90]
     }
   ]
